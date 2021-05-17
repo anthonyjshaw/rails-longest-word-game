@@ -1,0 +1,20 @@
+
+<div class="container">
+  <h1>New game</h1>
+<ul class="letters">
+<% @sample3.each do |letter| %>
+<li class="letter"><%= letter.upcase %></li>
+<% end %>
+</ul>
+
+<p>What is the longest word you can find?</p>
+
+<form action="/score" method="post" class="input-group mb-3">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="word" value="<%= params[:word] %>" class="form-control">
+ <%= hidden_field_tag 'word_grid', @sample3.to_a %>
+  <input type="submit" value="Play" class="btn btn-outline-secondary">
+</form>
+
+
+</div>
